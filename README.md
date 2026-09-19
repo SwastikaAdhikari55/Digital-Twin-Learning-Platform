@@ -1,142 +1,193 @@
-# TwinLearn - AI-Powered Digital Twin Learning Platform
+# AI-Powered Digital Twin Platform for Personalized and Predictive Learning Analytics
 
-TwinLearn is an AI-powered Digital Twin learning platform prototype developed for an ML hackathon. The platform represents a student's learning state through a Digital Twin and provides personalized learning analytics, performance predictions, adaptive learning support, and teacher-level monitoring.
+## Overview
 
-The current prototype demonstrates the complete user-facing workflow through an interactive web interface.
+The AI-Powered Digital Twin Platform is a web-based learning analytics prototype that represents a student's learning state through a digital twin. It combines learning mastery, cognitive indicators, learning history, concept dependencies, risk metrics, study activity, and performance projections into a single interactive interface.
 
-## Project Overview
+The platform is designed to show how a digital representation of a learner can be used to understand current learning performance, identify concept-level weaknesses, provide personalized study guidance, explore what-if learning scenarios, and present model explanations.
 
-TwinLearn creates a digital representation of a student's learning profile using information such as concept mastery, cognitive indicators, study behaviour, learning progress, and risk metrics.
+The current prototype uses the learner profile and learning data defined in the project files. The data is synthetic and is stored locally in JavaScript for demonstration of the platform interface and its analytics behaviour.
 
-The prototype is designed around a student named Arjun Sharma and demonstrates how the Digital Twin can be used to:
-
-- monitor overall learning mastery
-- visualize relationships between learning concepts
-- track cognitive indicators
-- show memory retention and forgetting behaviour
-- predict future performance
-- identify at-risk concepts
-- generate a personalized study schedule
-- provide adaptive quiz questions
-- provide a Twin-aware AI Tutor interface
-- simulate the effect of changes in study behaviour
-- explain prediction factors
-- provide a teacher-level view of multiple students
-
-## Main Modules
+## What the Platform Contains
 
 ### Digital Twin Dashboard
 
-The dashboard presents the student's current learning state, including overall mastery, study streak, focus score, learning hours, knowledge graph, cognitive profile, memory retention curve, and concept mastery.
+The dashboard provides an overall view of the learner's current learning state. It includes overall mastery, learning streak, focus score, learning hours, twin version and twin accuracy.
+
+It also contains a knowledge graph showing concept relationships and mastery levels, a cognitive profile, a forgetting curve, and a subject-concept mastery view.
+
+The knowledge graph currently contains concepts including Algebra, Functions, Trigonometry, Limits, Derivatives, Integration, Statistics, Probability, Matrices, Vectors, Complex Numbers and Differential Equations.
 
 ### Predictions and Early Warning
 
-This section presents predicted performance trajectories and risk indicators. The prototype includes exam failure risk, dropout risk, burnout risk, and frustration index.
+The prediction view presents current performance together with projected performance under two situations: without intervention and with AI intervention.
 
-It also provides an at-risk concept forecast containing the concept, subject, risk level, risk score, timeframe, root issue, and recommended action.
+It also displays learning-risk indicators for exam failure, dropout, cognitive burnout and frustration.
+
+Concept-level warnings identify concepts that require attention and show their associated risk level, timeframe, identified issue and suggested action.
 
 ### Personalized Study Planner
 
-The study planner provides a weekly schedule with study time, topic, activity type, priority, and subject. It also displays the daily goal, today's progress, study streak, and predicted exam score associated with the plan.
+The study planner displays a weekly schedule from Monday to Sunday.
+
+The current schedule contains learning sessions for topics such as Limits, Derivatives, Waves, Probability, Integration, Matrices, Python Arrays, Trigonometry, Complex Numbers, Vectors, a Calculus mock test, mistake review, weak-concept revision and CS projects.
+
+Each session contains a time, duration, topic, subject, session type and priority.
 
 ### Adaptive Quiz Engine
 
-The quiz module selects questions around the learning concepts represented in the Digital Twin. The prototype includes questions from topics such as derivatives, limits, integration, trigonometry, matrices, and probability.
+The quiz engine presents five questions during a quiz session.
 
-After an answer is processed, the interface updates the quiz state and represents a Digital Twin confidence or mastery update.
+Questions are selected with priority given to the currently weak areas of Derivatives, Limits and Integration, while other questions are also included.
+
+The prototype supports answer selection, answer checking, skipping, explanations, scoring, quiz progress and starting a new quiz session.
 
 ### AI Tutor
 
-The AI Tutor interface is designed around the student's Digital Twin profile and provides personalized learning suggestions such as explaining concepts, understanding score changes, improving retention, and creating a study plan.
+The platform includes an AI Tutor interface named Ava.
+
+The tutor is connected to the learner information represented in the digital twin and provides predefined responses based on the user's message. It also provides suggested questions related to integration, derivatives, calculus performance, study planning and retention.
+
+The current implementation is a frontend prototype. Tutor responses are defined in the local project data rather than being generated through a live external AI API.
 
 ### Learning Simulation
 
-The simulation provides a What-If interface where study variables can be adjusted and the projected exam score is updated.
+The simulation view provides a what-if analysis interface.
 
-The available controls in the prototype are:
+The learner can adjust:
 
-- Daily Study Time
-- Focus Level
-- Spaced Repetition Adherence
-- Calculus Priority Weight
+- Study time
+- Focus
+- Spacing
+- Priority
 
-The prototype displays a four-week score projection comparing the current trajectory with the simulated plan.
+The platform uses these inputs in the simulation formula and updates the projected score and learning trajectory.
+
+It also provides predefined scenarios:
+
+- Minimal Effort
+- Current Pace
+- Optimal Plan
+- Intensive Mode
+
+The simulation displays a projected four-week trajectory and compares it with the without-change trajectory.
 
 ### Explainable AI
 
-The Explainable AI section shows the factors represented as influencing the exam failure risk prediction. It also provides a feature-importance visualization, model information, other predictions, and knowledge-tracing trends.
+The explainability view shows the factors used to explain the displayed learning-risk result.
 
-### Teacher View
+The current prototype includes:
 
-The teacher view provides a class-level overview for Grade 11A and displays student-level information including mastery, failure risk, burnout, trend, and alerts.
+- Derivatives mastery
+- Integration mastery
+- Limits mastery
+- Study streak
+- Average session duration
 
-## Machine Learning and Analytics Concepts Represented
+It also displays a knowledge-tracing style chart showing the progression of selected concepts across eight weeks.
 
-The prototype represents the following ML and learning-analytics concepts:
+The interface includes model information displayed by the prototype, including the model name, reported accuracy and data description.
 
-- Digital Twin based learning representation
-- Knowledge Tracing
-- Performance prediction
-- Risk prediction
-- Adaptive learning
-- Personalized study planning
-- Spaced repetition
-- Cognitive profiling
-- Explainable AI
-- What-If simulation
-- Concept dependency analysis
-- Learning analytics dashboards
+### Teacher and Parent Dashboard
 
-The prototype displays a model information section identifying the approach as a GradBoost + KT Ensemble and shows the model accuracy and training-data figures used in the interface.
+The teacher view displays information for eight students in Grade 11A.
+
+Each student card contains overall mastery, fail risk, burnout level, learning trend and alert information.
 
 ## Technology Used
 
-The provided prototype is a web-based frontend built with:
+The prototype is implemented as a client-side web application using:
 
-- HTML5
-- CSS3
-- JavaScript
-- Chart.js
+- HTML5 for the application structure
+- CSS3 for styling and responsive interface design
+- JavaScript for application logic and interactive behaviour
+- Chart.js for data visualizations
+- Canvas API for the knowledge graph
+- Local JavaScript data objects for the prototype learning data
 
-Chart.js is loaded through a CDN in the prototype.
+Chart.js is loaded through its CDN in the current implementation.
 
 ## Project Structure
 
 ```text
-TwinLearn/
+Stu/
 |
-├── index.html
-├── css/
-│   └── style.css
-└── js/
-    ├── app.js
-    └── data.js
+|-- index.html
+|
+|-- css/
+|   |-- style.css
+|
+|-- js/
+    |-- app.js
+    |-- data.js
 ```
 
-## How to Run the Prototype
+### File Responsibilities
 
-No Python environment or package installation is required for the current prototype.
+`index.html`
 
-1. Download or clone this repository.
-2. Open the `TwinLearn` folder.
-3. Open `index.html` in a modern web browser.
-4. Navigate through the available sections using the sidebar.
+Contains the complete interface structure and the different platform views.
 
-Because Chart.js and the Google Fonts used by the interface are loaded from external CDNs, an internet connection may be required for all visual elements to load correctly.
+`css/style.css`
 
-## Data in the Current Prototype
+Contains the visual styling, layout, cards, navigation, charts, tables and responsive interface rules.
 
-The current prototype uses the data defined in `js/data.js`. The student profiles, mastery values, predictions, risk metrics, quiz questions, study schedules, and other displayed values are part of the prototype data.
+`js/data.js`
 
-The repository does not contain a separate machine learning training dataset or a backend training pipeline in the supplied prototype.
+Contains the learner profile, knowledge graph data, cognitive profile, forgetting curve, predictions, risk metrics, concept warnings, study plan, quiz questions, tutor suggestions and responses, explainability data and teacher dashboard data.
 
-## Hackathon Prototype Scope
+`js/app.js`
 
-This repository represents the working prototype submitted as part of an ML hackathon project. Its purpose is to demonstrate the proposed Digital Twin learning analytics experience and the interaction between learning-state representation, prediction, personalization, simulation, explainability, and teacher monitoring.
+Contains the application logic, navigation, chart initialization, knowledge graph rendering, quiz behaviour, tutor interaction, simulation calculations, explainability visualizations, teacher dashboard rendering and digital-twin update behaviour.
 
-The README describes only functionality present in the supplied prototype and does not assume additional backend services, datasets, APIs, or model-training pipelines that are not included in this repository.
+## How the Prototype Works
 
-## Future Development
+The application starts from the Digital Twin Dashboard and loads the locally defined learner data.
 
-Future implementation details should be added only when they are actually developed and included in the project repository.
+The JavaScript application uses this data to render the different analytics views. When a user changes views, the corresponding charts and interactive components are initialized.
 
+The knowledge graph represents relationships between learning concepts. Mastery values are visualized for individual concepts, while the cognitive profile and forgetting curve provide additional views of the learner's state.
+
+The prediction section uses the predefined prediction data to visualize performance trajectories and learning risks.
+
+The study planner renders the predefined weekly learning schedule.
+
+The quiz engine selects questions from the local question bank, giving priority to weak topics.
+
+The learning simulation calculates a projected final score from study time, focus, spacing and priority inputs and updates the displayed trajectory.
+
+The prototype also contains a small live-update behaviour that slightly changes knowledge-node mastery values at regular intervals to simulate an updating digital twin.
+
+## Running the Project
+
+No backend server is required for the current prototype.
+
+Clone or download the repository and open:
+
+```text
+Stu/index.html
+```
+
+in a modern web browser.
+
+Because Chart.js is loaded from a CDN, an internet connection is required when the page loads the chart library.
+
+## Data and Prototype Scope
+
+The current implementation uses synthetic, locally defined learning data for the prototype.
+
+The repository does not contain a backend database, model-training pipeline, authentication system, external AI API integration or real student data.
+
+The AI, prediction, risk, explainability and simulation components shown in the interface are implemented through the data and JavaScript logic included in the current prototype.
+
+## Project Objective
+
+The objective of the platform is to demonstrate a digital-twin approach to personalized and predictive learning analytics, where a learner's knowledge state and learning indicators can be represented, monitored, analyzed and used to support personalized learning decisions.
+
+## Current Prototype
+
+The prototype brings the following components together in one interface:
+
+Digital Twin Dashboard, Predictions and Early Warning, Personalized Study Planner, Adaptive Quiz Engine, AI Tutor, Learning Simulation, Explainable AI, and Teacher and Parent Dashboard.
+
+This repository contains the current working frontend implementation of the platform.
